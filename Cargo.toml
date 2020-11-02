@@ -1,0 +1,90 @@
+[package]
+name = "colorblind"
+version = "0.0.1"
+authors = ["Simonsan <simon@systemli.org>"]
+edition = "2018"
+repository = "https://github.com/simonsan/colorblind-rs"
+documentation = "https://docs.rs/colorblind/"
+readme = "README.md"
+license = "Unlicense"
+keywords = ["accessibility", "colorblind",]
+categories = [""]
+description = """
+Colorblind-rs helps you to make your software more inclusive
+"""
+
+exclude = [
+    "Cargo.lock",
+    "changelog.toml",
+    "deny.toml",
+    "justfile",
+    "release.toml",
+    "rustfmt.toml",
+    "bors.toml",
+    ".gitjournal.toml",
+    ".clog.toml",
+    "tests/**/*",
+    ".github/**/*",
+]
+
+[workspace]
+members = []
+
+[dependencies]
+human-panic = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+
+[dev-dependencies]
+assert_cmd = "1.0"
+predicates = "1.0"
+lazy_static = "1.4"
+pretty_assertions = "0.6"
+
+[package.metadata.release]
+upload-doc = true
+no-dev-version = true
+pre-release-commit-message = "Release {{crate_name}} {{version}} / {{date}}"
+
+[lib]
+name = "colorblind"
+path = "src/lib.rs"
+edition = "2018"
+crate-type = ["lib"]
+
+[[bin]]
+name = "colorblind"
+path = "src/main.rs"
+edition = "2018"
+
+[profile.dev]
+opt-level=0
+debug = true
+rpath = false
+lto = false
+debug-assertions = true
+codegen-units = 4
+
+[profile.release]
+opt-level=3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+
+[profile.test]
+opt-level = 1
+debug = true
+rpath = false
+lto = false
+debug-assertions = true
+codegen-units = 4
+
+[profile.bench]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1

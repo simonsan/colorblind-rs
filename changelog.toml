@@ -1,0 +1,32 @@
+[[tag]]
+tag = "Breaking"
+name = "Breaking"
+
+[[tag]]
+tag = "Fixed"
+name = "Fixed"
+footers = ["Fixes"]
+
+[[tag]]
+tag = "Changed"
+name = "Changed"
+
+[[tag]]
+tag = "default"
+name = "Default"
+
+[[tag]]
+tag = "Improved"
+name = "Improved"
+
+[[tag]]
+tag = "Added"
+name = "Added"
+
+[[tag]]
+tag = "Removed"
+name = "Removed"
+
+[[tag]]
+tag = "Doc"
+name = "Documentation"
